@@ -237,6 +237,7 @@ async function getArtistWorks(artistItem, page, type) {
 
   await getCookie();
   const now = Math.round(Date.now() / 1e3);
+  const dm_rand = "ABCDEFGHIJK".split('')
   const params = {
     mid: artistItem.id,
     ps: 30,
@@ -247,13 +248,13 @@ async function getArtistWorks(artistItem, page, type) {
     order: "pubdate",
     keyword: "",
     platform: "web",
-    dm_img_list: "[]",
-    dm_img_str: "V2ViR0wgMS4wIChPcGVuR0wgRVMgMi4wIENocm9taXVtKQ",
+    dm_img_list: '[]',
+    dm_img_str: randomSample(dm_rand, 2).join(''),
     dm_cover_img_str:
-      "QU5HTEUgKE5WSURJQSwgTlZJRElBIEdlRm9yY2UgR1RYIDE2NTAgKDB4MDAwMDFGOTEpIERpcmVjdDNEMTEgdnNfNV8wIHBzXzVfMCwgRDNEMTEpR29vZ2xlIEluYy4gKE5WSURJQS",
+    randomSample(dm_rand, 2).join(''),
+    dm_img_inter: '{"ds":[],"wh":[0,0,0],"of":[0,0,0]}',
     wts: now.toString(),
   };
-
   const w_rid = getRid(params);
   const res = (
     await axios.get("https://api.bilibili.com/x/space/wbi/arc/search", {
