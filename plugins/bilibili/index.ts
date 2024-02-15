@@ -255,7 +255,7 @@ async function getArtistWorks(artistItem, page, type) {
 
   await getCookie();
   const now = Math.round(Date.now() / 1e3);
-  const dm_rand = "ABCDEFGHIJK".split('')
+  const dm_rand = "ABCDEFGHIJK".split('');
   const params = {
     mid: artistItem.id,
     ps: 30,
@@ -268,8 +268,7 @@ async function getArtistWorks(artistItem, page, type) {
     platform: "web",
     dm_img_list: '[]',
     dm_img_str: randomSample(dm_rand, 2).join(''),
-    dm_cover_img_str:
-    randomSample(dm_rand, 2).join(''),
+    dm_cover_img_str: randomSample(dm_rand, 2).join(''),
     dm_img_inter: '{"ds":[],"wh":[0,0,0],"of":[0,0,0]}',
     wts: now.toString(),
   };
