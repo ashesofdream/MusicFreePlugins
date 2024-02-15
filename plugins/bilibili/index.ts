@@ -221,7 +221,25 @@ function getRid(params) {
   const w_rid = CryptoJs.MD5(f + o).toString();
   return w_rid;
 }
+//dm sample
+function randomSample(population, sampleSize) {
+  if (sampleSize > population.length) {
+    throw new Error('Sample size exceeds population size');
+  }
 
+  let shuffled = population.slice(0);
+  let i = population.length;
+  let temp, index;
+
+  while (i--) {
+    index = Math.floor((i + 1) * Math.random());
+    temp = shuffled[index];
+    shuffled[index] = shuffled[i];
+    shuffled[i] = temp;
+  }
+
+  return shuffled.slice(0, sampleSize);
+}
 async function getArtistWorks(artistItem, page, type) {
   const queryHeaders = {
     "user-agent":
